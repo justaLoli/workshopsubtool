@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.1
 // @description  [RELEASE NOTE] add version managing
-// @updateURL    https://github.com/justaLoli/workshopsubtool/raw/refs/heads/main/random-map-subber.user.js
-// @downloadURL  https://github.com/justaLoli/workshopsubtool/raw/refs/heads/main/random-map-subber.user.js
+// @updateURL    https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
+// @downloadURL  https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
 // @author       justaloli
 // @match        https://steamcommunity.com/workshop/browse/*
 // @grant        none
