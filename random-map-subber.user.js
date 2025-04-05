@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sub X random community maps!
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Sub X random community maps to play!
 // @author       justaloli
 // @match        https://steamcommunity.com/workshop/browse/*
