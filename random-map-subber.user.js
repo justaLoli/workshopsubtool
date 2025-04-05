@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Sub X random community maps!
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  [RELEASE NOTE] add version managing
+// @version      1.2
+// @description  [RELEASE NOTE] this is a test update. nothing is changed except the version number.
 // @updateURL    https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
 // @downloadURL  https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
 // @author       justaloli
