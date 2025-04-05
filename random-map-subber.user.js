@@ -2,7 +2,9 @@
 // @name         Sub X random community maps!
 // @namespace    http://tampermonkey.net/
 // @version      1.1
-// @description  Sub X random community maps to play!
+// @description  [RELEASE NOTE] add version managing
+// @updateURL    https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
+// @downloadURL  https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
 // @author       justaloli
 // @match        https://steamcommunity.com/workshop/browse/*
 // @grant        none
