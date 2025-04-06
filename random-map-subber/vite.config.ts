@@ -8,11 +8,13 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         name: 'Sub X random community maps!',
-        version: '1.3',
-        description: '[RELEASE NOTE] rewrite in typescript for easier future maintenance, AND a ui toggle button!',
+        version: '1.3.1',
+        description: '[RELEASE NOTE] added updateurl and downloadurl because i forgot to do so :(',
         author: "justaloli",
         match: ['https://steamcommunity.com/workshop/browse/*'],
-        grant: "none"
+        grant: "none",
+        updateURL: "https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js",
+        downloadURL: "https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js"
       },
     }),
   ],

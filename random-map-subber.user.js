@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Sub X random community maps!
 // @namespace    vite-plugin-monkey
-// @version      1.3
+// @version      1.3.1
 // @author       justaloli
-// @description  [RELEASE NOTE] rewrite in typescript for easier future maintenance, AND a ui toggle button!
+// @description  [RELEASE NOTE] added updateurl and downloadurl because i forgot to do so :(
+// @downloadURL  https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
+// @updateURL    https://raw.githubusercontent.com/justaLoli/workshopsubtool/main/random-map-subber.user.js
 // @match        https://steamcommunity.com/workshop/browse/*
 // @grant        none
 // ==/UserScript==
