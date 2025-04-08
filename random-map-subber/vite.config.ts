@@ -8,8 +8,8 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         name: 'Sub X random community maps!',
-        version: '1.3.1',
-        description: '[RELEASE NOTE] added updateurl and downloadurl because i forgot to do so :(',
+        version: '1.4',
+        description: '[RELEASE NOTE] full code refactor!',
         author: "justaloli",
         match: ['https://steamcommunity.com/workshop/browse/*'],
         grant: "none",
