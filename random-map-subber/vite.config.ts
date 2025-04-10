@@ -8,8 +8,8 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         name: 'Sub X random community maps!',
-        version: '2.0',
-        description: '[RELEASE NOTE] TRUE RANDOM AND P2 NSRCC% SUPPORT!',
+        version: '2.1',
+        description: '[RELEASE NOTE] Moved app entry to the sidebar.',
         author: "justaloli",
         match: ['https://steamcommunity.com/workshop/browse/*'],
         grant: "none",

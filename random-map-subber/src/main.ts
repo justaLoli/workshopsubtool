@@ -3,6 +3,39 @@
 declare const g_sessionID: any;
 declare const $J: any;
 
+const sidebar = document.querySelector(".sidebar");
+const hasSteamUI = (sidebar != null);
+const myContainer = document.createElement("div");
+if (hasSteamUI) {
+    const panel = document.createElement("div");
+    panel.className = "panel";
+    panel.innerHTML = `<div class="rightSectionTopTitle">Tools</div>`;
+    myContainer.className = "rightDetailsBlock";
+    panel.appendChild(myContainer);
+    sidebar.prepend(panel);
+} else {
+    myContainer.style.position = "fixed";
+    myContainer.style.top = "20px";
+    myContainer.style.left = "20px";
+    myContainer.style.zIndex = "1000";
+    document.body.appendChild(myContainer);
+}
+
+const createSteamUIButton = (buttonText:string) => {
+    if(hasSteamUI) {
+        const b = document.createElement("div");
+        b.classList = "browseOption notSelected";
+        b.innerHTML = `<a>${buttonText}</a>`
+        return b;
+    }
+    else {
+        const b = document.createElement("button");
+        b.innerText = buttonText;
+        return b;
+    }
+}
+
+
 (()=>{
 
 const config = {
@@ -86,7 +119,7 @@ const UIManager = {
         this.elements.container.appendChild(this.elements.loadFromClipboardButton);
 
         this.elements.messageArea = document.createElement('p');
-        this.elements.messageArea.innerText = "Workshop tool: Casual, more general. Speedrun tool in progress.";
+        this.elements.messageArea.innerText = "Workshop tool: Casual, more general.";
         this.elements.messageArea.style.marginTop = "10px";
         this.elements.messageArea.style.marginBottom = "10px";
         this.elements.container.appendChild(this.elements.messageArea);
@@ -102,7 +135,7 @@ const UIManager = {
 
         this.elements.loadToGameButton = document.createElement('button');
         this.elements.loadToGameButton.style.marginLeft = "10px";
-        this.elements.loadToGameButton.textContent = 'Load to Game';
+        this.elements.loadToGameButton.textContent = 'Subscribe Items';
         this.elements.container.appendChild(this.elements.loadToGameButton);
         console.log(`UIManager: UI ${containerId} Initialized.`);
         this.addOpenCloseButton();
@@ -116,19 +149,9 @@ const UIManager = {
         }
     },
     addOpenCloseButton() {
-        const toggleUIButtonSpan = document.createElement("span");
-        toggleUIButtonSpan.classList = "btn_blue_steamui btn_medium";
-        toggleUIButtonSpan.innerHTML = "<span>Open Workshop Tool</span>";
+        const toggleUIButtonSpan = createSteamUIButton("Open Workshop Tool");
         toggleUIButtonSpan.onclick = this.toggleContainerDisplay;
-        const searchedTermsContainer = document.querySelector(".searchedTermsContainer");
-        if (searchedTermsContainer) {
-            searchedTermsContainer.appendChild(toggleUIButtonSpan);
-        } else {
-            toggleUIButtonSpan.style.position = "fixed";
-            toggleUIButtonSpan.style.top = "20px";
-            toggleUIButtonSpan.style.left = "20px";
-            document.body.appendChild(toggleUIButtonSpan);
-        }
+        myContainer.appendChild(toggleUIButtonSpan);
         const closeUIButton = document.createElement("button");
         closeUIButton.style.position = "absolute";
         closeUIButton.style.top = "10px";
@@ -462,19 +485,9 @@ const UIManager = {
         }
     },
     addOpenCloseButton() {
-        const toggleUIButtonSpan = document.createElement("span");
-        toggleUIButtonSpan.classList = "btn_blue_steamui btn_medium";
-        toggleUIButtonSpan.innerHTML = `<span>${this.textHints.toggleUIButton}</span>`;
+        const toggleUIButtonSpan = createSteamUIButton(this.textHints.toggleUIButton);
         toggleUIButtonSpan.onclick = this.toggleContainerDisplay;
-        const searchedTermsContainer = document.querySelector(".searchedTermsContainer");
-        if (searchedTermsContainer) {
-            searchedTermsContainer.appendChild(toggleUIButtonSpan);
-        } else {
-            toggleUIButtonSpan.style.position = "fixed";
-            toggleUIButtonSpan.style.top = "20px";
-            toggleUIButtonSpan.style.left = "20px";
-            document.body.appendChild(toggleUIButtonSpan);
-        }
+        myContainer.appendChild(toggleUIButtonSpan);
         const closeUIButton = document.createElement("button");
         closeUIButton.style.position = "absolute";
         closeUIButton.style.top = "10px";
@@ -734,8 +747,8 @@ const App = {
         const middle = Math.floor((start + end) / 2);
         log("Fetching counts for the two halves...");
         const [result1, result2] = await Promise.all([
-            App.fetchCountInRange(start, middle, log),
-            App.fetchCountInRange(middle + 1, end, log) /* should check if this +1 is needed or not */
+            App.fetchCountInRange(start, middle, (_)=>{}),
+            App.fetchCountInRange(middle + 1, end, (_)=>{}) /* should check if this +1 is needed or not */
         ]);
         const sumMapCount = result1.mapCount + result2.mapCount;
         if (result1.mapCount + result2.mapCount !== totalCount) {
